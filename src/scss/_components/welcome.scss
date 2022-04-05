@@ -1,0 +1,105 @@
+// SECTION :: START
+
+.welcome {
+  position: relative;
+  padding-top: 100px;
+  background-color: #140015;
+  @include adaptive(767) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  &__bg {
+    z-index: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(#000,0.65) 100%);
+  }
+
+  &__wrapper {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include adaptive(1023) {
+      flex-wrap: wrap;
+    }
+
+    &-left {
+      flex: 1;
+      min-width: 1px;
+      max-width: 100%;
+      padding-right: 80px;
+      @include adaptive(1023) {
+        flex: 100%;
+        padding-right: 0;
+        padding-bottom: 20px;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    &-right {
+      width: 100%;
+      max-width: 540px;
+      @include adaptive(1023) {
+        max-width: 100%;
+      }
+
+      img {
+        display: block;
+        max-width: 45px;
+        height: auto;
+        margin-bottom: 80px;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-fill-mode: both;
+        animation-duration: 2s;
+        animation-name: animationArrow;
+        @include adaptive(767) {
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+
+  &__title {
+    padding-bottom: 30px;
+    font-size: 30px;
+    text-transform: uppercase;
+    @extend %fontModernDOS;
+    color: #9e005d;
+    @include adaptive(767) {
+      font-size: 26px;
+    }
+  }
+
+  &__desc {
+    padding-bottom: 30px;
+    font-size: 18px;
+    @include adaptive(767) {
+      font-size: 16px;
+    }
+  }
+}
+
+@keyframes animationArrow {
+  from {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(25%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+// SECTION :: END

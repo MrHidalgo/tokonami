@@ -104,6 +104,90 @@ window.addEventListener('load', function (ev) {
   // COMMON
   _common_common__WEBPACK_IMPORTED_MODULE_0__["default"].initLoad(); // MACROS
 
+  var areAnimation = function areAnimation() {
+    var tl = gsap.timeline({
+      repeat: -1,
+      yoyo: true
+    });
+    tl.fromTo('[are-point-1-js]', {
+      opacity: 0
+    }, {
+      duration: 1,
+      opacity: 1
+    }).fromTo('[are-line-1-js]', {
+      height: 0
+    }, {
+      duration: 1,
+      height: '100%'
+    }).fromTo('[are-line-2-js]', {
+      width: 0
+    }, {
+      duration: 1,
+      width: '100%'
+    }).fromTo('[are-line-3-js]', {
+      width: 0
+    }, {
+      duration: 1,
+      width: '100%'
+    }, '-=1').fromTo('[are-line-4-js], [are-line-5-js], [are-line-6-js], [are-line-7-js]', {
+      height: 0
+    }, {
+      duration: 1,
+      height: '100%'
+    }).fromTo('[are-point-2-js], [are-point-3-js], [are-point-4-js], [are-point-5-js]', {
+      opacity: 0
+    }, {
+      duration: 1,
+      opacity: 1
+    });
+  };
+
+  var aboutAnimation = function aboutAnimation() {
+    var tl = gsap.timeline({
+      repeat: -1,
+      yoyo: true
+    });
+    tl.fromTo('.about__bg-wrapper span:nth-of-type(1)', {
+      height: 0
+    }, {
+      duration: 1,
+      height: '350'
+    }).fromTo('.about__bg-wrapper span:nth-of-type(2)', {
+      width: 0
+    }, {
+      duration: 1,
+      width: '110'
+    }).fromTo('.about__bg-wrapper span:nth-of-type(3)', {
+      height: 0
+    }, {
+      duration: 1,
+      height: '50'
+    }).fromTo('.about__bg-wrapper i', {
+      opacity: 0
+    }, {
+      duration: 1,
+      opacity: 1
+    }, '-=0.2');
+    gsap.to(".about__bg-cover", {
+      scrollTrigger: {
+        scrub: true
+      },
+      y: function y(i, target) {
+        return -ScrollTrigger.maxScroll(window) * target.dataset.speed;
+      },
+      ease: "none"
+    });
+    gsap.to(".are__bg-bottom", {
+      scrollTrigger: {
+        scrub: true
+      },
+      y: function y(i, target) {
+        return -ScrollTrigger.maxScroll(window) * target.dataset.speed;
+      },
+      ease: "none"
+    });
+  };
+
   var footerAnimation = function footerAnimation() {
     var tl = gsap.timeline({
       repeat: -1,
@@ -184,8 +268,10 @@ window.addEventListener('load', function (ev) {
       gaspHelper();
       tl.restart();
     }, false);
-  };
+  }; // areAnimation();
 
+
+  aboutAnimation();
   footerAnimation();
 }, false); // EVENT LISTENER - SCROLL
 // ========================================

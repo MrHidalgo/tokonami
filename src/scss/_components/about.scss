@@ -5,15 +5,69 @@
   padding-top: 140px;
   padding-bottom: 100px;
   background-color: #000000;
-  background-image: url('../img/img-about-bg.png');
-  background-repeat: no-repeat;
-  background-position: center top;
   @include adaptive(1023) {
     padding-top: 100px;
-    background-size: contain;
+  }
+
+  &__bg {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &-cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('../img/img-about-bg.png');
+      background-repeat: no-repeat;
+      background-position: center top;
+      //background-size: contain;
+    }
+
+    &-wrapper {
+      z-index: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding-left: 80px;
+      padding-right: 80px;
+      transform: translateY(-270px);
+
+      span {
+        background-color: #1fa875;
+
+        &:nth-of-type(1) {
+          width: 1px;
+          height: 350px;
+        }
+        &:nth-of-type(2) {
+          width: 110px;
+          height: 1px;
+        }
+        &:nth-of-type(3) {
+          width: 1px;
+          height: 50px;
+          transform: translateX(109px);
+        }
+      }
+
+      i {
+        transform: translateX(106px);
+        width: 7px;
+        height: 7px;
+        background-color: #1fa875;
+      }
+    }
   }
 
   &__wrapper {
+    z-index: 2;
+    position: relative;
     display: flex;
     align-items: center;
     padding-bottom: 30px;
