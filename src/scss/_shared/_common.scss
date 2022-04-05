@@ -1,0 +1,13 @@
+// COMMON :: START
+
+.copyright,
+.made {
+  @extend %fontModernDOS;
+  font-size: 14px;
+  line-height: 1;
+  @include adaptive(767) {
+    font-size: 12px;
+  }
+}
+
+// COMMON :: END

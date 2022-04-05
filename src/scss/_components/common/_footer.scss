@@ -1,0 +1,341 @@
+// FOOTER :: START
+
+.footer {
+  background-color: #01141a;
+
+  &__container {
+    &-1 {
+      padding-top: 80px;
+      padding-bottom: 90px;
+    }
+
+    &-2 {
+      position: relative;
+    }
+  }
+
+  &__bg {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background-color: #15262d;
+    @include adaptive(767) {
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  &__wrapper {
+    z-index: 2;
+    position: relative;
+
+    &-1 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 65px;
+      background-color: #15262d;
+
+      > div {
+        padding-left: 35px;
+        @include adaptive(767) {
+          padding-left: 0;
+        }
+      }
+    }
+
+    &-col {
+      flex: 1;
+      min-width: 1px;
+      max-width: 100%;
+    }
+  }
+
+  &__block {
+    display: flex;
+    width: 100%;
+    border: 2px solid #073a33;
+    background-color: #0a2126;
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-wrapper {
+      display: flex;
+      @include adaptive(1023) {
+        flex-wrap: wrap;
+      }
+
+      &:not(:last-of-type) {
+        padding-bottom: 80px;
+      }
+
+      > div {
+        &:nth-of-type(1) {
+          flex: 1;
+          min-width: 1px;
+          max-width: 100%;
+          @include adaptive(1023) {
+            flex: 100%;
+          }
+        }
+        &:nth-of-type(2) {
+          width: 100%;
+          max-width: 635px;
+          @include adaptive(1279) {
+            max-width: 35%;
+          }
+          @include adaptive(1023) {
+            max-width: 100%;
+            padding-top: 20px;
+            padding-left: 200px;
+          }
+          @include adaptive(767) {
+            padding-left: 100px;
+          }
+        }
+      }
+    }
+
+    &-list {
+      z-index: 4;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 50px;
+        padding: 5px 20px;
+        @include adaptive(767) {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+
+        &:not(:last-of-type) {
+          border-bottom: 1px solid #073a33;
+        }
+
+        > div {
+          &:nth-of-type(1) {
+            padding-right: 10px;
+            @include adaptive(767) {
+              padding-right: 5px;
+            }
+          }
+          &:nth-of-type(2) {
+            text-align: right;
+            padding-left: 10px;
+            @include adaptive(767) {
+              padding-left: 5px;
+            }
+          }
+        }
+
+        p,
+        span {
+          @extend %fontModernDOS;
+          font-size: 18px;
+          @include adaptive(1279) {
+            font-size: 16px;
+          }
+          @include adaptive(767) {
+            font-size: 12px;
+          }
+        }
+
+        p {
+          color: #1fa875;
+        }
+      }
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+
+    &-wrapper {
+      display: flex;
+
+      > div {
+        &:nth-of-type(1) {
+          width: 100%;
+          max-width: 165px;
+          @include adaptive(767) {
+            max-width: 80px;
+          }
+        }
+        &:nth-of-type(2) {
+          flex: 1;
+          min-width: 1px;
+          max-width: 100%;
+          padding-left: 35px;
+          padding-right: 80px;
+          @include adaptive(1279) {
+            padding-right: 40px;
+          }
+          @include adaptive(767) {
+            padding-left: 20px;
+            padding-right: 0;
+          }
+        }
+      }
+    }
+
+    &-title {
+      padding-bottom: 10px;
+      text-transform: uppercase;
+      font-size: 30px;
+      @extend %fontModernDOS;
+      @include adaptive(1279) {
+        font-size: 25px;
+      }
+      @include adaptive(767) {
+        font-size: 22px;
+      }
+
+      span {
+        color: #1fa875;
+      }
+    }
+
+    &-desc {
+      font-size: 18px;
+      line-height: 1.6;
+      @include adaptive(1279) {
+        font-size: 16px;
+      }
+      @include adaptive(767) {
+        font-size: 14px;
+      }
+    }
+
+    &-total,
+    &-token {
+      font-size: 18px;
+      @include adaptive(1279) {
+        font-size: 16px;
+      }
+      @include adaptive(767) {
+        font-size: 14px;
+      }
+
+      strong {
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__animation {
+    position: relative;
+
+    &-1 {
+      span {
+        &:nth-of-type(1) {
+          top: -80px;
+          left: 50%;
+          transform: translate(-50%, 0);
+          width: 1px;
+          height: 80px;
+        }
+        &:nth-of-type(2) {
+          top: 0;
+          right: calc(-260px + 50%);
+          transform: translate(0, -80px);
+          width: 260px;
+          height: 1px;
+        }
+        &:nth-of-type(3) {
+          left: calc(50% + 259px);
+          top: 0;
+          width: 1px;
+          height: 100px;
+          transform: translate(0, -180px);
+        }
+        &:nth-of-type(4) {
+          top: 100%;
+          left: 50%;
+          transform: translate(-50%, 0);
+          width: 1px;
+          height: 0;
+        }
+      }
+    }
+
+    &-2 {
+      span {
+        &:nth-of-type(1) {
+          top: 100%;
+          left: 50%;
+          transform: translate(-50%, 0);
+          width: 1px;
+          height: 0;
+        }
+      }
+
+      img {
+        max-width: 64px;
+      }
+    }
+
+    span,
+    i {
+      position: absolute;
+      display: flex;
+      background-color: #1fa875;
+    }
+
+    i {
+      opacity: 0;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      width: 7px;
+      height: 7px;
+      transform-origin: center;
+    }
+
+    &-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 165px;
+      height: 165px;
+      border: 1px solid #0d312e;
+      background-color: #092025;
+      @include adaptive(767) {
+        width: 80px;
+        height: 80px;
+      }
+
+      img {
+        display: block;
+        max-width: 72px;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        @include adaptive(767) {
+          max-width: 32px;
+        }
+      }
+    }
+  }
+}
+
+// FOOTER :: END
