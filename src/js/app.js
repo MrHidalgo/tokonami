@@ -1,6 +1,19 @@
 import Common from "./common/common";
 
 
+const initHeaderFixed = () => {
+  let countScroll = $(window).scrollTop(),
+    headerElement = $('.header');
+
+  if (countScroll > 10) {
+    headerElement.addClass("is-fixed");
+  } else {
+    headerElement.removeClass("is-fixed");
+  }
+
+};
+
+
 // EVENT LISTENER - LOAD
 // ========================================
 window.addEventListener('load', (ev) => {
@@ -104,14 +117,78 @@ window.addEventListener('load', (ev) => {
   };
 
 
+  const initSmoothScroll = (btnName = "[anchor-js]", animateSpeed = 1000) => {
+
+    $(btnName).on("click", (e) => {
+
+      let linkHref = $(e.currentTarget).attr('href'),
+        headerHeight = $(".header").outerHeight() || 0,
+        topHeightOffset = $(linkHref).offset().top - headerHeight;
+
+      $('body, html').animate({
+        scrollTop: topHeightOffset
+      }, animateSpeed);
+
+    });
+
+  };
+
+
+  const headerNav = () => {
+    $('.header__nav a').on('click', (ev) => {
+      $('.header__nav a').removeClass('is-active');
+      $(ev.currentTarget).addClass('is-active');
+
+      if($(window).width() < 1024) {
+        $("[hamburger-js]").removeClass('is-active');
+        $("html, body").removeClass('is-hideScroll');
+        $("[mobile-block-js]").removeClass('is-open');
+        $('#overlay').hide();
+      }
+    });
+  };
+
+
+  const initHamburger = () => {
+
+    const btn = document.querySelector("[hamburger-js]"),
+      hideScrollContainer = document.querySelectorAll("html, body"),
+      mobileContainer = document.querySelector("[mobile-block-js]");
+
+    /**
+     * @description
+     */
+    btn.addEventListener("click", (ev) => {
+      const elem = ev.currentTarget;
+
+      elem.classList.toggle("is-active");
+      mobileContainer.classList.toggle("is-open");
+
+      $('#overlay').toggle();
+
+      hideScrollContainer.forEach((val, idx) => {
+        val.classList.toggle("is-hideScroll");
+      });
+
+    });
+
+  };
+
+
   headingParallax();
   areAnimation();
   aboutAnimation();
   footerAnimation();
+  initSmoothScroll();
+  headerNav();
+  initHeaderFixed();
+  initHamburger();
 
 }, false);
 
 
 // EVENT LISTENER - SCROLL
 // ========================================
-window.addEventListener('scroll', (ev) => {}, false);
+window.addEventListener('scroll', (ev) => {
+  initHeaderFixed();
+}, false);

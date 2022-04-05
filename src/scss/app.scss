@@ -2,7 +2,7 @@
 @import "_utilities/*.scss";
 
 /// VENDOR
-//@import "_vendor/hamburger/_hamburgers";
+@import "_vendor/hamburger/_hamburgers";
 
 /// GENERATED
 //@import "_generated/spriteFont";
@@ -18,7 +18,7 @@
 
 /// MACROS
 //@import "_macros/hamburger";
-//@import "_macros/logotype";
+@import "_macros/logotype";
 //@import "_macros/title";
 //@import "_macros/subtitle";
 //@import "_macros/btn";

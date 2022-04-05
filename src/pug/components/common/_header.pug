@@ -1,7 +1,53 @@
 // HEADER :: START
 
 nav#header.header
+
+  .header__bg
+
   .c-grid
-    .header__wrapper
+    .header__wrapper.header__wrapper-1
+      div
+
+        .logo
+          a.logo__btn(href="#")
+            img(src="img/logo.png" srcset="img/logo@2x.png" alt="")
+
+      div
+
+        .header__social
+          a(href="#")
+            img(src="img/facebook.png" srcset="img/facebook@2x.png 2x" alt="")
+          a(href="#")
+            img(src="img/instagram.png" srcset="img/instagram@2x.png 2x" alt="")
+          a(href="#")
+            img(src="img/twitter.png" srcset="img/twitter@2x.png 2x" alt="")
+
+        +hamburger
+
+    .header__wrapper.header__wrapper-2(mobile-block-js)
+      div
+
+        nav.header__nav
+          a.is-active(href="#heading" anchor-js)
+            i
+            span Home
+          a(href="#are" anchor-js)
+            i
+            span WHO ARE WE?
+          a(href="#about" anchor-js)
+            i
+            span TOKENOMICS
+          a(href="#footer" anchor-js)
+            i
+            span Metrics
+
+      div
+        a.header__phone(href="tel:0123456789")
+          div
+            img(src="img/phone.png" srcset="img/phone@2x.png 2x" alt="")
+          div
+            p 0123 456 789
+
+
 
 // HEADER :: END

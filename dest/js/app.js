@@ -97,8 +97,20 @@ var __webpack_exports__ = {};
   \***********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/common */ "./src/js/common/common.js");
- // EVENT LISTENER - LOAD
+
+
+var initHeaderFixed = function initHeaderFixed() {
+  var countScroll = $(window).scrollTop(),
+      headerElement = $('.header');
+
+  if (countScroll > 10) {
+    headerElement.addClass("is-fixed");
+  } else {
+    headerElement.removeClass("is-fixed");
+  }
+}; // EVENT LISTENER - LOAD
 // ========================================
+
 
 window.addEventListener('load', function (ev) {
   // COMMON
@@ -291,14 +303,66 @@ window.addEventListener('load', function (ev) {
     }, false);
   };
 
+  var initSmoothScroll = function initSmoothScroll() {
+    var btnName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "[anchor-js]";
+    var animateSpeed = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1000;
+    $(btnName).on("click", function (e) {
+      var linkHref = $(e.currentTarget).attr('href'),
+          headerHeight = $(".header").outerHeight() || 0,
+          topHeightOffset = $(linkHref).offset().top - headerHeight;
+      $('body, html').animate({
+        scrollTop: topHeightOffset
+      }, animateSpeed);
+    });
+  };
+
+  var headerNav = function headerNav() {
+    $('.header__nav a').on('click', function (ev) {
+      $('.header__nav a').removeClass('is-active');
+      $(ev.currentTarget).addClass('is-active');
+
+      if ($(window).width() < 1024) {
+        $("[hamburger-js]").removeClass('is-active');
+        $("html, body").removeClass('is-hideScroll');
+        $("[mobile-block-js]").removeClass('is-open');
+        $('#overlay').hide();
+      }
+    });
+  };
+
+  var initHamburger = function initHamburger() {
+    var btn = document.querySelector("[hamburger-js]"),
+        hideScrollContainer = document.querySelectorAll("html, body"),
+        mobileContainer = document.querySelector("[mobile-block-js]");
+    /**
+     * @description
+     */
+
+    btn.addEventListener("click", function (ev) {
+      var elem = ev.currentTarget;
+      elem.classList.toggle("is-active");
+      mobileContainer.classList.toggle("is-open");
+      $('#overlay').toggle();
+      hideScrollContainer.forEach(function (val, idx) {
+        val.classList.toggle("is-hideScroll");
+      });
+    });
+  };
+
   headingParallax();
   areAnimation();
   aboutAnimation();
   footerAnimation();
+  initSmoothScroll();
+  headerNav();
+  initHeaderFixed();
+  initHamburger();
 }, false); // EVENT LISTENER - SCROLL
 // ========================================
 
-window.addEventListener('scroll', function (ev) {}, false);
+window.addEventListener('scroll', function (ev) {
+  initHeaderFixed();
+}, false);
 }();
 /******/ })()
 ;
