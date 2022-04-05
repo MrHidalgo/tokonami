@@ -104,6 +104,27 @@ window.addEventListener('load', function (ev) {
   // COMMON
   _common_common__WEBPACK_IMPORTED_MODULE_0__["default"].initLoad(); // MACROS
 
+  var headingParallax = function headingParallax() {
+    gsap.to(".heading__bg img", {
+      scrollTrigger: {
+        scrub: true
+      },
+      y: function y(i, target) {
+        return -ScrollTrigger.maxScroll(window) * target.dataset.speed;
+      },
+      ease: "none"
+    });
+    gsap.to(".heading__text", {
+      scrollTrigger: {
+        scrub: true
+      },
+      y: function y(i, target) {
+        return -ScrollTrigger.maxScroll(window) * target.dataset.speed;
+      },
+      ease: "none"
+    });
+  };
+
   var areAnimation = function areAnimation() {
     var tl = gsap.timeline({
       repeat: -1,
@@ -268,9 +289,10 @@ window.addEventListener('load', function (ev) {
       gaspHelper();
       tl.restart();
     }, false);
-  }; // areAnimation();
+  };
 
-
+  headingParallax();
+  areAnimation();
   aboutAnimation();
   footerAnimation();
 }, false); // EVENT LISTENER - SCROLL

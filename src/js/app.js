@@ -9,6 +9,23 @@ window.addEventListener('load', (ev) => {
   Common.initLoad();
 
   // MACROS
+  const headingParallax = () => {
+    gsap.to(".heading__bg img", {
+      scrollTrigger: {
+        scrub: true
+      },
+      y: (i, target) => -ScrollTrigger.maxScroll(window) * target.dataset.speed,
+      ease: "none"
+    });
+    gsap.to(".heading__text", {
+      scrollTrigger: {
+        scrub: true
+      },
+      y: (i, target) => -ScrollTrigger.maxScroll(window) * target.dataset.speed,
+      ease: "none"
+    });
+  };
+
   const areAnimation = () => {
     const tl = gsap.timeline({
       repeat: -1,
@@ -87,7 +104,8 @@ window.addEventListener('load', (ev) => {
   };
 
 
-  // areAnimation();
+  headingParallax();
+  areAnimation();
   aboutAnimation();
   footerAnimation();
 
