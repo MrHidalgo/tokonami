@@ -5,7 +5,7 @@
 }
 
 /* FONTS */
-.footer__box-title, .footer__block-list li p,
+.about__title, .footer__box-title, .footer__block-list li p,
 .footer__block-list li span, .copyright,
 .made {
   font-family: "ModernDOS";
@@ -597,7 +597,105 @@ picture {
 }
 
 .about {
+  position: relative;
   padding-top: 140px;
   padding-bottom: 100px;
   background-color: #000000;
+  background-image: url("../img/img-about-bg.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+@media screen and (max-width: 1023px) {
+  .about {
+    padding-top: 100px;
+    background-size: contain;
+  }
+}
+.about__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 30px;
+}
+@media screen and (max-width: 1023px) {
+  .about__wrapper {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+.about__wrapper-left, .about__wrapper-right {
+  width: 50%;
+}
+@media screen and (max-width: 1023px) {
+  .about__wrapper-left, .about__wrapper-right {
+    width: 100%;
+  }
+}
+.about__wrapper-left {
+  padding-right: 20px;
+}
+@media screen and (max-width: 1023px) {
+  .about__wrapper-left {
+    padding-right: 0;
+  }
+}
+.about__wrapper-left > div {
+  width: 100%;
+  max-width: 540px;
+}
+@media screen and (max-width: 1023px) {
+  .about__wrapper-left > div {
+    max-width: 100%;
+  }
+}
+.about__title {
+  padding-bottom: 30px;
+  font-size: 30px;
+  color: #9e005d;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 1023px) {
+  .about__title {
+    font-size: 26px;
+    text-align: center;
+  }
+}
+.about__desc {
+  font-size: 18px;
+}
+@media screen and (max-width: 1023px) {
+  .about__desc {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+.about__desc:not(:last-of-type) {
+  padding-bottom: 30px;
+}
+.about__visual {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+@media screen and (max-width: 1023px) {
+  .about__visual {
+    padding-top: 20px;
+  }
+}
+.about__visual img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
 }

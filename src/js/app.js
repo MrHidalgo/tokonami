@@ -40,6 +40,7 @@ window.addEventListener('load', (ev) => {
     }, false);
   };
 
+
   footerAnimation();
 
 }, false);
